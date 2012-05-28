@@ -60,6 +60,14 @@ module Forem
       end
     end
 
+    def children_size
+      self.posts.count
+    end
+
+    def view_count
+      self.views.inject(0){|sum, n| sum + n.count }   
+    end
+
     protected
     def set_first_post_user
       post = self.posts.first
